@@ -9,17 +9,27 @@
   </head>
   <body>
     <div id="app">
-      <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
-        <circle cx="100" cy="75" v-bind:r="radius" fill="lightpink" />
-      </svg>
-      <input type="range" min="0" max="100" v-model="radius" />
+      <ul>
+        <li
+          v-for="i in list"
+          v-bind:key="i.id"
+          v-bind:class="{tuyoi: i.hp > 300}"
+        >
+          ID.{{i.id}} {{ i.name }} HP.{{ i.hp }}
+          <span v-if="i.hp > 300">強い！</span>
+        </li>
+      </ul>
     </div>
 
     <script>
       new Vue({
         el: "#app",
         data: {
-          radius: 50,
+          list: [
+            { id: 1, name: "スライム", hp: 100 },
+            { id: 2, name: "ゴブリン", hp: 200 },
+            { id: 3, name: "ドラゴン", hp: 500 },
+          ],
         },
       });
     </script>
