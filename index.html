@@ -14,9 +14,14 @@
         <input type="text" v-model="newItem" />
         <button v-on:click="addItem">Add</button>
       </form>
-      <pre>{{ newItem }}</pre>
 
-      <span>{{ todos }}</span>
+      <!-- タスクのリスト表示 -->
+      <ul>
+        <li v-for="todo in todos">{{ todo.item }}</li>
+      </ul>
+
+      <!-- 登録しているデータの表示 -->
+      <pre>{{ $data }}</pre>
     </div>
     <script src="https://unpkg.com/vue@3.1.5"></script>
     <script src="./javascript/main.js"></script>
