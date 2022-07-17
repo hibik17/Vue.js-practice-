@@ -2,46 +2,23 @@
 <html lang="ja">
   <head>
     <meta charset="utf-8" />
-    <title>Vue.js App</title>
-    <link href="main.css" rel="stylesheet" />
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
-    <script src="main.js"></script>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue.js 3</title>
+    <link rel="stylesheet" href="css/main.css" />
   </head>
   <body>
     <div id="app">
-      <ul>
-        <li
-          v-for="i in list"
-          v-bind:key="i.id"
-          v-bind:class="{tuyoi: i.hp > 300}"
-        >
-          ID.{{i.id}} {{ i.name }} HP.{{ i.hp }}
-          <span v-if="i.hp > 300">強い！</span>
-        </li>
-      </ul>
+      <h2>TODO List</h2>
+      <form v-on:submit.prevent>
+        <input type="text" v-model="newItem" />
+        <button v-on:click="addItem">Add</button>
+      </form>
+      <pre>{{ newItem }}</pre>
+
+      <span>{{ todos }}</span>
     </div>
-
-    <script>
-      new Vue({
-        el: "#app",
-        data: {
-          list: [
-            { id: 1, name: "スライム", hp: 100 },
-            { id: 2, name: "ゴブリン", hp: 200 },
-            { id: 3, name: "ドラゴン", hp: 500 },
-          ],
-        },
-      });
-    </script>
-
-    <style>
-      .item {
-        padding: 4px 8px;
-        transition: background-color 0.4s;
-      }
-      .is-active {
-        background: #ffeaea;
-      }
-    </style>
+    <script src="https://unpkg.com/vue@3.1.5"></script>
+    <script src="./javascript/main.js"></script>
   </body>
 </html>
