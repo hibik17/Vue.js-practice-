@@ -1,11 +1,16 @@
 const app = Vue.createApp({
   data: () => ({
-    message: "hello <span style='color: red;'>vue.js!</span>",
+    message: "hello vue.js!",
+    userInput: "",
   }),
-
+  computed: {
+    reverse: function () {
+      return this.message.split("").reverse().join("");
+    },
+  },
   methods: {
     buttonClickAction: function () {
-      this.message = this.message.split("").reverse().join(" ");
+      this.message = this.message.split("").reverse().join();
     },
   },
 });
