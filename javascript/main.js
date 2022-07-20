@@ -1,19 +1,31 @@
+// watcherを使った実装;
+// const app = Vue.createApp({
+//   data: () => ({
+//     firstName: "",
+//     lastName: "",
+//     fullName: "",
+//   }),
+//   watch: {
+//     firstName: function (value) {
+//       this.fullName = value + " " + this.lastName;
+//     },
+//     lastName: function (value) {
+//       this.fullName = this.firstName + " " + this.lastName;
+//     },
+//   },
+// });
+
+// app.mount("#app");
+
 const app = Vue.createApp({
   data: () => ({
-    km: 0,
-    m: 0,
+    firstName: "",
+    lastName: "",
   }),
-  watch: {
-    km: function (value) {
-      console.log("km has been updated");
-      this.km = value;
-      this.m = this.km * 1000;
-    },
-    m: function (value) {
-      this.km = value / 1000;
-      this.m = value;
+  computed: {
+    fullName: function () {
+      return this.firstName + " " + this.lastName;
     },
   },
 });
-
 app.mount("#app");
