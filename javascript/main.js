@@ -1,15 +1,17 @@
 const app = Vue.createApp({
-  data: () => ({}),
-  computed: {
-    computedNumber: function () {
-      console.log("computed");
-      return Math.random();
+  data: () => ({
+    km: 0,
+    m: 0,
+  }),
+  watch: {
+    km: function (value) {
+      console.log("km has been updated");
+      this.km = value;
+      this.m = this.km * 1000;
     },
-  },
-  methods: {
-    methodsNumber: function () {
-      console.log("methods!");
-      return Math.random();
+    m: function (value) {
+      this.km = value / 1000;
+      this.m = value;
     },
   },
 });
